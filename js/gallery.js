@@ -83,4 +83,20 @@ const images = [
     ).join("");
     container.insertAdjacentHTML("beforeend", createMarkup);
     console.log(createMarkup);
-    
+    container.addEventListener(`click`, onClick);
+    function onClick(event) {
+      event.preventDefault();
+      const clickImage = event.target;
+      if(clickImage.classList.contains('gallery-image')) {
+const largeImage = clickImage.dataset.source;
+console.log(largeImage);
+const instance = basicLightbox.create(
+  `<img src = "${largeImage}">` 
+ );
+ instance.show();
+
+      }
+      
+    }
+      
+   
